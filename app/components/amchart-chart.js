@@ -28,6 +28,7 @@ export default Component.extend({
 
   dataObserver: observer('data', function() {
     this.chart.dispose();
+    this.sortData(this.selectedSort);
     this.createChart();
   }),
 
