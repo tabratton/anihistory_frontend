@@ -1,0 +1,15 @@
+<header class='navbar'>
+  <section class='navbar-section'>
+    {{#link-to 'index' class='navbar-brand'}}AnimeTrends{{/link-to}}
+  </section>
+  <section class="navbar-center">
+    <!-- centered logo or brand -->
+  </section>
+  <section class='navbar-section'>
+    <div class='input-group input-inline'>
+      {{input class='form-input' type='text' value=userName enter=(action 'goToUser') placeholder='username'}}
+      <button class='btn btn-primary input-group-btn' {{action 'goToUser'}}>Search</button>
+    </div>
+  </section>
+</header>
+{{yield}}

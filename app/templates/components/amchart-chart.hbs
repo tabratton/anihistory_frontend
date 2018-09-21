@@ -1,10 +1,19 @@
-<label>
-  <select onchange={{action (mut selectedSort) value='target.value'}}>
-    {{#each sortingOptions as |option|}}
-      <option value={{option}}>{{option}}</option>
-    {{/each}}
-  </select>
-</label>
-
-<div id="chartdiv"></div>
-<p>Note: Entries that have the same day as the start and end day will have 1 day added to the end day, otherwise they will not render on the chart</p>
+<div class='container'>
+  <div class='form-group columns ml-10'>
+    <select class='form-select col-1 col-mx-auto' onchange={{action (mut selectedSort) value='target.value'}}>
+      {{#each sortingOptions as |option|}}
+        <option value={{option}}>{{option}}</option>
+      {{/each}}
+    </select>
+    <select class='form-select col-1 col-mx-auto' onchange={{action (mut selectedLang) value='target.value'}}>
+      {{#each languageOptions as |option|}}
+        <option value={{option}}>{{option}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class='column col-12'>
+    <div lang='ja' class='text-italic' id='chartdiv'></div>
+    <p class='text-center'>Note: Entries that have the same day as the start and end day will have 1 day added
+      to the end day because they would not render on the chart</p>
+  </div>
+</div>

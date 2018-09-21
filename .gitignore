@@ -26,4 +26,4 @@ package.json.ember-try
 
 .env
 
-yarn\.lock
+/yarn.lock

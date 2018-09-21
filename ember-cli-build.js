@@ -26,5 +26,9 @@ module.exports = function(defaults) {
     }
   });
 
+  app.import('node_modules/spectre.css/dist/spectre.css');
+  app.import('node_modules/spectre.css/dist/spectre-exp.css');
+  app.import('node_modules/spectre.css/dist/spectre-icons.css');
+
   return app.toTree();
 };
