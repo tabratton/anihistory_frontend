@@ -1,0 +1,22 @@
+{{#if showToast}}
+  <div class='toast toast-{{type}}'>
+    <button class="btn btn-clear float-right" {{action 'clearToast'}}></button>
+    {{message}}
+  </div>
+{{/if}}
+
+<div class='columns'>
+  <div class='column col-4 col-mx-auto'>
+    <h4 class='text-center'>
+      {{if notFound 'User Not Found' 'Update User'}}
+    </h4>
+    <p class='text-center'>Enter your username below and hit update</p>
+    <div class='input-group'>
+      <div class='column col-4 col-mx-auto'>
+        {{input id='user-update' class='form-input' type='text' value=userName enter=(action 'updateUser')
+                placeholder='username'}}
+      </div>
+    </div>
+    <button class='btn btn-primary input-group-btn centered update-btn' {{action 'updateUser'}}>Update</button>
+  </div>
+</div>

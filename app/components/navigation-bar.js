@@ -6,7 +6,9 @@ export default Component.extend({
 
   actions: {
     goToUser() {
-      this.router.transitionTo('user', this.userName);
+      if (!this.router.currentRouteName.includes('update')) {
+        this.router.transitionTo('user', this.userName);
+      }
     }
   }
 });
