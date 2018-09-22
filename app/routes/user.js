@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import * as am4core from "@amcharts/amcharts4/core";
+import * as am4core from '@amcharts/amcharts4/core';
 import { addDays, isEqual, parse, subDays } from 'date-fns';
 
 export default Route.extend({

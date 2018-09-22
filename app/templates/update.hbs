@@ -8,7 +8,7 @@
 <div class='columns'>
   <div class='column col-4 col-mx-auto'>
     <h4 class='text-center'>
-      {{if notFound 'User Not Found' 'Update User'}}
+      {{if found 'Update User' 'User Not Found'}}
     </h4>
     <p class='text-center'>Enter your username below and hit update</p>
     <div class='input-group'>
