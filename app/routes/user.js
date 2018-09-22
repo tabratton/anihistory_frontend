@@ -1,10 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import * as am4core from "@amcharts/amcharts4/core";
-import parse from "date-fns/parse";
-import subDays from "date-fns/sub_days";
-import isEqual from "date-fns/is_equal";
-import addDays from "date-fns/add_days";
+import { addDays, isEqual, parse, subDays } from 'date-fns';
 
 export default Route.extend({
 
@@ -34,10 +31,14 @@ export default Route.extend({
           e.color = colorSet.next();
         });
         return data;
-    });
+    }, () => null);
   },
 
   setupController(controller, model) {
-    controller.set('model', model);
+    if (model) {
+      controller.set('model', model);
+    } else {
+      this.transitionTo('update', 'false');
+    }
   }
 });
