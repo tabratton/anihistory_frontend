@@ -6,6 +6,7 @@ import { addDays, isEqual, parse, subDays } from 'date-fns';
 export default Route.extend({
 
   ajax: service(),
+  router: service(),
 
   model(params) {
     return this.get('ajax').request(`https://rust.swigglemeister.com/users/${params.user_name}`)
@@ -32,6 +33,12 @@ export default Route.extend({
         });
         return data;
     }, () => null);
+  },
+
+  afterModel(model, transition) {
+    if (!model && this.router.currentRouteName === 'update') {
+      transition.abort();
+    }
   },
 
   setupController(controller, model) {
