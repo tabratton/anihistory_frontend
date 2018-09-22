@@ -6,6 +6,6 @@ export default Route.extend({
   },
 
   setupController(controller, model) {
-    controller.set('found', model);
+    controller.set('found', model === 'true');
   },
 });
