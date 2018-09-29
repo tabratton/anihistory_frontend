@@ -1,8 +1,12 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
+import { translationMacro as t } from 'ember-i18n';
 
 export default Controller.extend({
+
   ajax: service(),
+  i18n: service(),
+
   message: null,
   showToast: false,
   type: null,
@@ -13,11 +17,11 @@ export default Controller.extend({
         dataType: 'text'
       })
         .then(() => {
-          this.set('message', 'User loading, it may take a minute or two to load all data');
+          this.set('message', t('messages.user-loading'));
           this.set('type', 'success');
           this.set('showToast', true);
         }, error => {
-          this.set('message', error.status === 404 ? 'User not found in Anilist' : 'Service Unavailable');
+          this.set('message', error.status === 404 ? t('messages.not_found') : t('messages.unavail'));
           this.set('type', 'error');
           this.set('showToast', true);
         });

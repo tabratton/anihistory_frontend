@@ -8,15 +8,14 @@
 <div class='columns'>
   <div class='column col-4 col-mx-auto'>
     <h4 class='text-center'>
-      {{if found 'Update User' 'User Not Found'}}
+      {{if found (t 'update-page.title-update') (t 'update-page.title-not-found')}}
     </h4>
-    <p class='text-center'>Enter your username below and hit update</p>
+    <p class='text-center'>{{t 'update-page.update-hint'}}</p>
     <div class='input-group'>
       <div class='column col-4 col-mx-auto'>
-        {{input id='user-update' class='form-input' type='text' value=userName enter=(action 'updateUser')
-                placeholder='username'}}
+        {{input id='user-update' class='form-input' type='text' value=userName enter=(action 'updateUser') placeholder=(t 'update-page.username')}}
       </div>
     </div>
-    <button class='btn btn-primary input-group-btn centered update-btn' {{action 'updateUser'}}>Update</button>
+    <button class='btn btn-primary input-group-btn centered update-btn' {{action 'updateUser'}}>{{t 'update-page.update'}}</button>
   </div>
 </div>

@@ -8,7 +8,11 @@ module.exports = function(defaults) {
       files: [
         'charts',
         'themes/animated',
-        'themes/kelly'
+        'themes/kelly',
+        'themes/spiritedaway',
+        'themes/dataviz',
+        'themes/moonrisekingdom',
+        'themes/frozen'
       ]
     },
     'ember-cli-babel': {

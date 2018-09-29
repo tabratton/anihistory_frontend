@@ -27,6 +27,7 @@ export default Route.extend({
           e.english = e.english ? e.english : e['user_title'];
           e.romaji = e.romaji ? e.romaji : e['user_title'];
           e.native = e.native ? e.native : e['user_title'];
+          e.user = e['user_title'];
 
           e.end_day = e.end_day ? parse(e.end_day) : new Date();
           if (isEqual(e.start_day, e.end_day)) {

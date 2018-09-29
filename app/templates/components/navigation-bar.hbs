@@ -5,12 +5,15 @@
   <section class='navbar-section'>
     <div class='tab tab-block'>
       <div class='tab-item'>
-        {{#link-to 'update' 'true'}}Update{{/link-to}}
+        {{#link-to 'update' 'true'}}{{t 'navigation-bar.update'}}{{/link-to}}
+      </div>
+      <div class='tab-item'>
+        {{#link-to 'settings'}}{{t 'navigation-bar.settings'}}{{/link-to}}
       </div>
     </div>
     <div class='input-group input-inline'>
-      {{input class='form-input' type='text' value=userName enter=(action 'goToUser') placeholder='username'}}
-      <button class='btn btn-primary input-group-btn' {{action 'goToUser'}}>Search</button>
+      {{input class='form-input' type='text' value=userName enter=(action 'goToUser') placeholder=(t 'navigation-bar.username')}}
+      <button class='btn btn-primary input-group-btn' {{action 'goToUser'}}>{{t 'navigation-bar.update'}}</button>
     </div>
   </section>
 </header>

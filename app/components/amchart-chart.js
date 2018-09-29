@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { observer } from '@ember/object';
+import { inject as service } from '@ember/service';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import { compareAsc, compareDesc } from 'date-fns';
@@ -10,32 +11,29 @@ am4core.useTheme(am4themes_animated);
 
 export default Component.extend({
 
+  i18n: service(),
+
   sortingOptions: null,
   languageOptions: null,
-  selectedSort: 'Ascending',
-  selectedLang: 'User Title',
-  lang: 'user_title',
+  sort: 'asc',
+  lang: 'user',
   chart: null,
 
   init() {
     this._super(...arguments);
-    this.sortingOptions = ['Ascending', 'Descending'];
-    this.languageOptions = ['User Title', 'English', 'Romaji', 'Native'];
-    this.sortData(this.selectedSort);
+    this.sortingOptions = ['asc', 'desc'];
+    this.languageOptions = ['user', 'english', 'romaji', 'native'];
+    this.sortData(this.sort);
   },
 
   dataObserver: observer('data', function() {
     this.chart.dispose();
-    this.sortData(this.selectedSort);
+    this.sortData(this.sort);
     this.createChart();
   }),
 
-  sortingObserver: observer('selectedSort', function() {
-    this.sortData();
-  }),
-
-  sortData() {
-    if (this.selectedSort === 'Ascending') {
+  sortData(sort) {
+    if (sort === 'asc') {
       this.data.sort((a, b) => compareAsc(a.start_day, b.start_day));
     } else {
       this.data.sort((a, b) => compareDesc(a.start_day, b.start_day));
@@ -45,16 +43,16 @@ export default Component.extend({
     }
   },
 
-  languageObserver: observer('selectedLang', function () {
-    this.selectLanguage(this.selectedLang);
-  }),
+  setSort(sort) {
+    this.sortData(sort);
+  },
 
-  selectLanguage() {
-    this.lang = this.selectedLang.replace(' ', '_').toLowerCase();
+  setLang(lang) {
+    this.set('lang', lang);
 
     if (this.chart) {
       this.chart.dispose();
-      this.sortData();
+      this.sortData(this.sort);
       this.createChart();
     }
   },
