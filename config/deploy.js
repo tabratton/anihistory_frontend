@@ -6,9 +6,6 @@ module.exports = function(deployTarget) {
     build: {
       environment: deployTarget
     },
-    'revision-data': {
-      type: 'git-commit'
-    },
     's3-index': {
       accessKeyId: process.env.AWS_KEY,
       secretAccessKey: process.env.AWS_SECRET,
@@ -20,8 +17,7 @@ module.exports = function(deployTarget) {
       accessKeyId: process.env.AWS_KEY,
       secretAccessKey: process.env.AWS_SECRET,
       bucket: process.env.AWS_BUCKET,
-      region: 'us-east-1',
-      cacheControl: 'max-age=0, public'
+      region: 'us-east-1'
     },
     cloudfront: {
       accessKeyId: process.env.AWS_KEY,

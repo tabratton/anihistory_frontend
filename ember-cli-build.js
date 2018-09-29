@@ -14,16 +14,6 @@ module.exports = function(defaults) {
     'ember-cli-babel': {
       includePolyfill: true
     },
-    'ember-date-fns': {
-      includedDateFns: [
-        'parse',
-        'compare_asc',
-        'compare_desc',
-        'is_equal',
-        'add_days',
-        'sub_days'
-      ],
-    }
   });
 
   app.import('node_modules/spectre.css/dist/spectre.css');
