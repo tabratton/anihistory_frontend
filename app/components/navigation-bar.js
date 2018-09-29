@@ -6,7 +6,9 @@ export default Component.extend({
 
   actions: {
     goToUser() {
-      this.router.transitionTo('user', this.userName);
+      let user = this.userName;
+      this.set('userName', null);
+      this.router.transitionTo('user', user);
     }
   }
 });
