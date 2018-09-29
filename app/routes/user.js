@@ -3,6 +3,8 @@ import { inject as service } from '@ember/service';
 import * as am4core from '@amcharts/amcharts4/core';
 import { addDays, isEqual, parse, subDays } from 'date-fns';
 
+import am4themes_kelly from '@amcharts/amcharts4/themes/kelly';
+
 export default Route.extend({
 
   ajax: service(),
@@ -12,6 +14,7 @@ export default Route.extend({
     return this.get('ajax').request(`https://rust.swigglemeister.com/users/${params.user_name}`)
       .then(({ data }) => {
         let colorSet = new am4core.ColorSet();
+        am4themes_kelly(colorSet);
         data.forEach(e => {
           if (e.start_day) {
             e.start_day = parse(e.start_day);

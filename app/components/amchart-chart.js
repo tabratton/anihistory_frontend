@@ -2,12 +2,11 @@ import Component from '@ember/component';
 import { observer } from '@ember/object';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
-import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import am4themes_kelly from '@amcharts/amcharts4/themes/kelly';
 import { compareAsc, compareDesc } from 'date-fns';
 
+import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+
 am4core.useTheme(am4themes_animated);
-am4core.useTheme(am4themes_kelly);
 
 export default Component.extend({
 
