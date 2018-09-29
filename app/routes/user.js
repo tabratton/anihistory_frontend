@@ -35,9 +35,9 @@ export default Route.extend({
     }, () => null);
   },
 
-  afterModel(model, transition) {
+  afterModel(model) {
     if (!model && this.router.currentRouteName === 'update') {
-      transition.abort();
+      this.transitionTo('update', 'false');
     }
   },
 
