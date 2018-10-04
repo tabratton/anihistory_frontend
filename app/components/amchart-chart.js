@@ -69,6 +69,8 @@ export default Component.extend({
     categoryAxis.renderer.grid.template.location = 0;
     categoryAxis.renderer.inversed = true;
     categoryAxis.renderer.fontSize = 12;
+    categoryAxis.renderer.labels.template.disabled = true;
+    categoryAxis.cursorTooltipEnabled = false;
 
     let dateAxis = this.chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.dateFormatter.dateFormat = 'yyyy-MM-dd';
@@ -89,7 +91,7 @@ export default Component.extend({
 
     this.chart.cursor = new am4charts.XYCursor();
     this.chart.cursor.lineX.strokeDasharray = '';
-    this.chart.cursor.lineY.strokeDasharray = '';
+    this.chart.cursor.lineY.disabled = true;
     this.chart.cursor.behavior = 'zoomXY';
 
     this.chart.scrollbarX = new am4core.Scrollbar();
