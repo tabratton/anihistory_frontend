@@ -64,7 +64,7 @@ export default Component.extend({
     this.chart.paddingRight = 30;
     this.chart.dateFormatter.inputDateFormat = 'yyyy-MM-dd';
 
-    let categoryAxis = this.chart.yAxes.push(new am4charts.CategoryAxis());
+    const categoryAxis = this.chart.yAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = this.lang;
     categoryAxis.renderer.grid.template.location = 0;
     categoryAxis.renderer.inversed = true;
@@ -72,14 +72,14 @@ export default Component.extend({
     categoryAxis.renderer.labels.template.disabled = true;
     categoryAxis.cursorTooltipEnabled = false;
 
-    let dateAxis = this.chart.xAxes.push(new am4charts.DateAxis());
+    const dateAxis = this.chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.dateFormatter.dateFormat = 'yyyy-MM-dd';
     dateAxis.renderer.minGridDistance = 70;
     dateAxis.baseInterval = { count: 1, timeUnit: 'day' };
     dateAxis.tooltipDateFormat = 'yyyy-MM-dd';
     dateAxis.renderer.fontSize = 12;
 
-    let series1 = this.chart.series.push(new am4charts.ColumnSeries());
+    const series1 = this.chart.series.push(new am4charts.ColumnSeries());
     series1.columns.template.width = am4core.percent(80);
     series1.columns.template.tooltipText = `{${this.lang}}: {openDateX} - {dateX}`;
 

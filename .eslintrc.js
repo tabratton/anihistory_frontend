@@ -15,6 +15,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    'prefer-const': 2
   },
   overrides: [
     // node files

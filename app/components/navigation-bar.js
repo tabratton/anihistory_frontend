@@ -8,7 +8,7 @@ export default Component.extend({
 
   actions: {
     goToUser() {
-      let user = this.userName;
+      const user = this.userName;
       this.set('userName', null);
       this.router.transitionTo('user', user);
     }
