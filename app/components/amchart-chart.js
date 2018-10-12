@@ -20,11 +20,6 @@ export default Component.extend({
     this.sortData();
   },
 
-  dataObserver: observer('data', function() {
-    this.sortData();
-    this.createChart();
-  }),
-
   sortData() {
     if (this.sort === 'asc') {
       this.data.sort((a, b) => compareAsc(b.start_day, a.start_day));
