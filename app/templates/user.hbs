@@ -2,7 +2,19 @@
   <div class='columns'>
     <div class='column col-12'>
       {{#if model}}
-        {{amchart-chart data=model}}
+        <div class='form-group columns ml-10'>
+          <select class='form-select column col-2 col-mx-auto' onchange={{action setSort value='target.value'}} title={{t 'sorting.title'}}>
+            {{#each sortingOptions as |option|}}
+              <option value={{option}}>{{t (concat 'sorting.' option)}}</option>
+            {{/each}}
+          </select>
+          <select class='form-select column col-2 col-mx-auto' onchange={{action setLang value='target.value'}} title={{t 'language-select.select'}}>
+            {{#each languageOptions as |option|}}
+              <option value={{option}}>{{t (concat 'title.' option)}}</option>
+            {{/each}}
+          </select>
+        </div>
+        {{amchart-chart data=model sort=sort lang=lang}}
       {{/if}}
     </div>
   </div>

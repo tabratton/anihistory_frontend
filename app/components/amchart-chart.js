@@ -13,51 +13,43 @@ export default Component.extend({
 
   i18n: service(),
 
-  sortingOptions: null,
-  languageOptions: null,
-  sort: 'asc',
-  lang: 'user',
   chart: null,
 
   init() {
     this._super(...arguments);
-    this.sortingOptions = ['asc', 'desc'];
-    this.languageOptions = ['user', 'english', 'romaji', 'native'];
-    this.sortData(this.sort);
+    this.sortData();
   },
 
   dataObserver: observer('data', function() {
-    this.chart.dispose();
-    this.sortData(this.sort);
+    this.sortData();
     this.createChart();
   }),
 
-  sortData(sort) {
-    if (sort === 'asc') {
-      this.data.sort((a, b) => compareAsc(a.start_day, b.start_day));
+  sortData() {
+    if (this.sort === 'asc') {
+      this.data.sort((a, b) => compareAsc(b.start_day, a.start_day));
     } else {
-      this.data.sort((a, b) => compareDesc(a.start_day, b.start_day));
+      this.data.sort((a, b) => compareDesc(b.start_day, a.start_day));
     }
+
     if (this.chart) {
       this.chart.invalidateData();
     }
   },
 
-  setSort(sort) {
-    this.sortData(sort);
-  },
+  sortObserver: observer('sort', function() {
+    this.sortData();
+  }),
 
-  setLang(lang) {
-    this.set('lang', lang);
-
-    if (this.chart) {
-      this.chart.dispose();
-      this.sortData(this.sort);
-      this.createChart();
-    }
-  },
+  langObserver: observer('lang', function() {
+    this.createChart();
+  }),
 
   createChart() {
+    if (this.chart) {
+      this.chart.dispose();
+    }
+
     this.chart = am4core.create('chartdiv', am4charts.XYChart);
 
     this.chart.data = this.data;
@@ -107,6 +99,7 @@ export default Component.extend({
     if (this.chart) {
       this.chart.dispose();
     }
+
     this._super(...arguments);
   },
 });

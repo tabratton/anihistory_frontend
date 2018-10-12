@@ -1,16 +1,4 @@
-  <div class='form-group columns ml-10'>
-    <select class='form-select column col-2 col-mx-auto' onchange={{action setSort value='target.value'}}>
-      {{#each sortingOptions as |option|}}
-        <option value={{option}}>{{t (concat 'sorting.' option)}}</option>
-      {{/each}}
-    </select>
-    <select class='form-select column col-2 col-mx-auto' onchange={{action setLang value='target.value'}}>
-      {{#each languageOptions as |option|}}
-        <option value={{option}}>{{t (concat 'title.' option)}}</option>
-      {{/each}}
-    </select>
-  </div>
-  <div class='column col-12'>
-    <div id="chartdiv" lang='ja' class='chart text-italic'></div>
-    <p class='text-center'>{{t 'chart.disclaimer'}}</p>
-  </div>
+<div class='column col-12'>
+  <div id='chartdiv' lang='ja' class='chart text-italic'></div>
+  <p class='text-center'>{{t 'chart.disclaimer'}}</p>
+</div>

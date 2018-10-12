@@ -1,5 +1,6 @@
 export default {
   "sorting": {
+    "title": "Sort Select",
     "asc": "Ascending",
     "desc": "Descending"
   },
