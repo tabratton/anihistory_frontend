@@ -1,19 +1,25 @@
-<header class='navbar'>
-  <section class='navbar-section'>
-    {{#link-to 'index' class='navbar-brand'}}AniHistory{{/link-to}}
+<header class="navbar">
+  <section class="navbar-section">
+    {{#link-to "index" class="navbar-brand"}}AniHistory{{/link-to}}
   </section>
-  <section class='navbar-section'>
-    <div class='tab tab-block'>
-      <div class='tab-item'>
-        {{#link-to 'update' 'true'}}{{t 'navigation-bar.update'}}{{/link-to}}
+  <section class="navbar-section">
+    <div class="tab tab-block">
+      <div class="tab-item">
+        {{#link-to "update" "true"}}{{t "navigation-bar.update"}}{{/link-to}}
       </div>
-      <div class='tab-item'>
-        {{#link-to 'settings'}}{{t 'navigation-bar.settings'}}{{/link-to}}
+      <div class="tab-item">
+        {{#link-to "settings"}}{{t "navigation-bar.settings"}}{{/link-to}}
       </div>
     </div>
-    <div class='input-group input-inline'>
-      {{input class='form-input' type='text' value=userName enter=(action 'goToUser') placeholder=(t 'navigation-bar.username')}}
-      <button class='btn btn-primary input-group-btn' {{action 'goToUser'}}>{{t 'navigation-bar.search'}}</button>
+    <div class="input-group input-inline">
+      {{input
+        type="text"
+        class="form-input"
+        value=userName
+        enter=(action "goToUser")
+        placeholder=(t "navigation-bar.username")
+      }}
+      <button class="btn btn-primary input-group-btn" {{action "goToUser"}}>{{t "navigation-bar.search"}}</button>
     </div>
   </section>
 </header>
