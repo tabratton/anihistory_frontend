@@ -12,7 +12,7 @@ export default Controller.extend({
 
   actions: {
     updateUser() {
-      this.get('ajax').post(`https://rust.swigglemeister.com/users/${this.userName}`, {
+      this.ajax.post(`https://rust.swigglemeister.com/users/${this.userName}`, {
         dataType: 'text'
       })
         .then(() => {

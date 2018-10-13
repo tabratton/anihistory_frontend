@@ -9,7 +9,7 @@ export default Component.extend({
   classNames: ['language-select'],
 
   locales: computed('i18n.{locale,locales}', function() {
-    const i18n = this.get('i18n');
+    const i18n = this.i18n;
     return this.get('i18n.locales').map(loc => {
       return {
         id: loc,
