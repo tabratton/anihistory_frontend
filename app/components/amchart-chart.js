@@ -32,6 +32,12 @@ export default Component.extend({
     }
   },
 
+  dataObserver: observer('data', function() {
+    this.chart.dispose();
+    this.sortData(this.sort);
+    this.createChart();
+  }),
+
   sortObserver: observer('sort', function() {
     this.sortData();
   }),

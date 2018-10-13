@@ -22,8 +22,8 @@ module.exports = function(deployTarget) {
     cloudfront: {
       accessKeyId: process.env.AWS_KEY,
       secretAccessKey: process.env.AWS_SECRET,
-      distribution: process.env.AWS_DIST,
-      region: 'us-east-1'
+      region: 'us-east-1',
+      distribution: process.env.AWS_DIST
     }
   };
 };
