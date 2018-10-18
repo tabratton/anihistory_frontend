@@ -22,7 +22,7 @@
             {{/each}}
           </select>
         </div>
-        {{amchart-chart data=model sort=sort lang=lang}}
+        <AmchartChart @data={{model}} @sort={{sort}} @lang={{lang}}/>
       {{/if}}
     </div>
   </div>

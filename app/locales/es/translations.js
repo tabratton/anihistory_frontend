@@ -1,5 +1,7 @@
 export default {
+  "project-name": "AnimeTrends",
   "sorting": {
+    "title": "Ordenar Seleccionar",
     "asc": "Ascendente",
     "desc": "Descendente"
   },
