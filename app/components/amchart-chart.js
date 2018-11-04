@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import { observer } from '@ember/object';
-import { inject as service } from '@ember/service';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import { compareAsc, compareDesc } from 'date-fns';
@@ -10,8 +9,6 @@ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 am4core.useTheme(am4themes_animated);
 
 export default Component.extend({
-
-  i18n: service(),
 
   chart: null,
 

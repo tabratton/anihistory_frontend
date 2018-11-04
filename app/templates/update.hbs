@@ -8,9 +8,9 @@
 <div class="columns">
   <div class="column col-4 col-mx-auto">
     <h4 class="text-center">
-      {{if found (t "update-page.title-update") (t "update-page.title-not-found")}}
+      {{if found (t "update-page.title_update") (t "update-page.title_not_found")}}
     </h4>
-    <p class="text-center">{{t "update-page.update-hint"}}</p>
+    <p class="text-center">{{t "update-page.update_hint"}}</p>
     <div class="input-group">
       <div class="column col-4 col-mx-auto">
         {{input
@@ -24,7 +24,7 @@
       </div>
     </div>
     <button
-      class="btn btn-primary input-group-btn centered update-btn"
+      class="btn btn-primary input-group-btn p-centered update-btn"
       {{action "updateUser"}}
     >
       {{t "update-page.update"}}

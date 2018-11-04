@@ -1,24 +1,25 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { inject as service } from '@ember/service'
+import { inject as service } from '@ember/service';
+import { translationMacro as t } from 'ember-intl';
 
 export default Component.extend({
 
-  i18n: service(),
+  intl: service(),
 
   classNames: ['language-select'],
 
-  locales: computed('i18n.{locale,locales}', function() {
-    const i18n = this.i18n;
-    return this.get('i18n.locales').map(loc => {
+  locales: computed('intl.{locale,locales}', function() {
+    return this.intl.locales.map(loc => {
+      debugger;
       return {
         id: loc,
-        text: i18n.t('language-select.language.' + loc) };
+        text: t('language-select.language.' + loc) };
     });
   }),
 
   setLocale(value) {
-    this.set('i18n.locale', value);
+    this.intl.setLocale(value);
   },
 
 });

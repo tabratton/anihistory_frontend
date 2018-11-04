@@ -10,7 +10,6 @@ Router.map(function() {
   this.route('index', { path: '/' });
   this.route('user', { path: 'user/:user_name' });
   this.route('update', { path: 'update/:found' });
-  this.route('settings');
 });
 
 export default Router;
