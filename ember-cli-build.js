@@ -18,6 +18,9 @@ module.exports = function(defaults) {
     'ember-cli-babel': {
       includePolyfill: true
     },
+    intl: {
+      defaultLocale: 'en'
+    },
   });
 
   app.import('node_modules/spectre.css/dist/spectre.css');
