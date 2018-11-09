@@ -1,6 +1,5 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { translationMacro as t } from 'ember-intl';
 
 export default Controller.extend({
 
@@ -17,11 +16,11 @@ export default Controller.extend({
         dataType: 'text'
       })
         .then(() => {
-          this.set('message', t('messages.user_loading'));
+          this.set('message', this.intl.t('messages.user_loading'));
           this.set('type', 'success');
           this.set('showToast', true);
         }, error => {
-          this.set('message', error.status === 404 ? t('messages.not_found') : t('messages.unavail'));
+          this.set('message', error.status === 404 ? this.intl.t('messages.not_found') : this.intl.t('messages.unavail'));
           this.set('type', 'error');
           this.set('showToast', true);
         });
