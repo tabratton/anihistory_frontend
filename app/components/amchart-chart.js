@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { observer } from '@ember/object';
+import { computed } from '@ember/object';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import { compareAsc, compareDesc } from 'date-fns';
@@ -11,11 +11,6 @@ am4core.useTheme(am4themes_animated);
 export default Component.extend({
 
   chart: null,
-
-  init() {
-    this._super(...arguments);
-    this.sortData();
-  },
 
   sortData() {
     if (this.sort === 'asc') {
@@ -29,24 +24,12 @@ export default Component.extend({
     }
   },
 
-  dataObserver: observer('data', function() {
-    this.chart.dispose();
-    this.sortData(this.sort);
-    this.createChart();
-  }),
-
-  sortObserver: observer('sort', function() {
-    this.sortData();
-  }),
-
-  langObserver: observer('lang', function() {
-    this.createChart();
-  }),
-
-  createChart() {
+  createChart: computed('lang', 'sort', function() {
     if (this.chart) {
       this.chart.dispose();
     }
+
+    this.sortData();
 
     this.chart = am4core.create('chartdiv', am4charts.XYChart);
 
@@ -86,7 +69,8 @@ export default Component.extend({
 
     this.chart.scrollbarX = new am4core.Scrollbar();
     this.chart.scrollbarY = new am4core.Scrollbar();
-  },
+    return true;
+  }),
 
   didInsertElement() {
     this._super(...arguments);

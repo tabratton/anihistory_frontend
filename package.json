@@ -23,7 +23,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "ember-ajax": "^4.0.0",
     "ember-auto-import": "^1.2.15",
-    "ember-cli": "~3.5.0",
+    "ember-cli": "~3.5.1",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.1.3",
     "ember-cli-dependency-checker": "^3.0.0",
@@ -49,7 +49,7 @@
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.5.1",
     "ember-truth-helpers": "^2.1.0",
-    "eslint-plugin-ember": "^5.4.0",
+    "eslint-plugin-ember": "6.0.1",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.0"
   },
@@ -57,7 +57,7 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "@amcharts/amcharts4-ember": "^4.0.0-beta.74",
+    "@amcharts/amcharts4-ember": "4.0.0-beta.83",
     "date-fns": "^1.29.0",
     "spectre.css": "^0.5.5"
   }
