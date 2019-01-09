@@ -21,12 +21,12 @@
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-ajax": "4.0.1",
+    "ember-ajax": "4.0.2",
     "ember-auto-import": "1.2.19",
     "ember-cli": "~3.6.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "7.2.0",
-    "ember-cli-dependency-checker": "^3.0.0",
+    "ember-cli-dependency-checker": "3.1.0",
     "ember-cli-deploy": "^1.0.2",
     "ember-cli-deploy-aws-pack": "^1.0.2",
     "ember-cli-deploy-display-revisions": "1.0.1",
@@ -51,15 +51,14 @@
     "ember-truth-helpers": "^2.1.0",
     "eslint-plugin-ember": "6.1.0",
     "loader.js": "^4.7.0",
-    "qunit-dom": "0.8.3"
+    "qunit-dom": "0.8.4"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "@amcharts/amcharts4-ember": "4.0.8",
+    "@amcharts/amcharts4-ember": "4.0.16",
     "date-fns": "1.30.1",
-    "ember-cli-update": "^0.27.3",
-    "spectre.css": "0.5.7"
+    "spectre.css": "0.5.8"
   }
 }
