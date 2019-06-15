@@ -1,4 +1,4 @@
-import Controller from '@ember/controller';
+import Controller from '@ember/controller'
 
 export default Controller.extend({
 
@@ -8,16 +8,16 @@ export default Controller.extend({
   lang: 'user',
 
   init() {
-    this._super(...arguments);
-    this.sortingOptions = ['desc', 'asc'];
-    this.languageOptions = ['user', 'english', 'romaji', 'native'];
+    this._super(...arguments)
+    this.sortingOptions = ['desc', 'asc']
+    this.languageOptions = ['user', 'english', 'romaji', 'native']
   },
 
   setSort(sort) {
-    this.set('sort', sort);
+    this.set('sort', sort)
   },
 
   setLang(lang) {
-    this.set('lang', lang);
+    this.set('lang', lang)
   },
-});
+})

@@ -14,17 +14,17 @@
     <div class="input-group">
       <div class="column col-4 col-mx-auto">
         {{input
-          id="user-update"
-          class="form-input"
-          type="text"
-          value=userName
-          enter=(action "updateUser")
-          placeholder=(t "update-page.username")
+            id="user-update"
+            class="form-input"
+            type="text"
+            value=userName
+            enter=(action "updateUser")
+            placeholder=(t "update-page.username")
         }}
       </div>
     </div>
     <button
-      class="btn btn-primary input-group-btn p-centered update-btn"
+        class="btn btn-primary input-group-btn p-centered update-btn"
       {{action "updateUser"}}
     >
       {{t "update-page.update"}}

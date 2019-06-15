@@ -1,5 +1,5 @@
-import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import Controller from '@ember/controller'
+import { inject as service } from '@ember/service'
 
 export default Controller.extend({
 
@@ -16,18 +16,19 @@ export default Controller.extend({
         dataType: 'text'
       })
         .then(() => {
-          this.set('message', this.intl.t('messages.user_loading'));
-          this.set('type', 'success');
-          this.set('showToast', true);
-        }, error => {
-          this.set('message', error.status === 404 ? this.intl.t('messages.not_found') : this.intl.t('messages.unavail'));
-          this.set('type', 'error');
-          this.set('showToast', true);
-        });
+          this.set('message', this.intl.t('messages.user_loading'))
+          this.set('type', 'success')
+          this.set('showToast', true)
+        })
+        .catch(error => {
+          this.set('message', error.status === 404 ? this.intl.t('messages.not_found') : this.intl.t('messages.unavail'))
+          this.set('type', 'error')
+          this.set('showToast', true)
+        })
     },
 
     clearToast() {
-      this.set('showToast', false);
+      this.set('showToast', false)
     }
   }
-});
+})

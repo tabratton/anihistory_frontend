@@ -1,5 +1,5 @@
-import Component from '@ember/component';
-import { inject as service } from '@ember/service';
+import Component from '@ember/component'
+import { inject as service } from '@ember/service'
 
 export default Component.extend({
 
@@ -7,9 +7,9 @@ export default Component.extend({
 
   actions: {
     goToUser() {
-      const user = this.userName;
-      this.set('userName', null);
-      this.router.transitionTo('user', user);
+      const user = this.userName
+      this.set('userName', null)
+      this.router.transitionTo('user', user)
     }
   }
-});
+})
