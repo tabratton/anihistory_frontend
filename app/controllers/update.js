@@ -1,34 +1,33 @@
 import Controller from '@ember/controller'
+import { action } from '@ember/object'
 import { inject as service } from '@ember/service'
+import { tracked } from '@glimmer/tracking'
 
-export default Controller.extend({
+export default class UpdateController extends Controller {
 
-  ajax: service(),
-  intl: service(),
+  @service intl
 
-  message: null,
-  showToast: false,
-  type: null,
+  @tracked message
+  @tracked type
+  @tracked showToast = false
 
-  actions: {
-    updateUser() {
-      this.ajax.post(`https://rust.swigglemeister.com/users/${this.userName}`, {
-        dataType: 'text'
+  @action updateUser() {
+    fetch(`https://rust.swigglemeister.com/users/${this.userName}`, {
+      method: 'POST'
+    })
+      .then(() => {
+        this.message = this.intl.t('messages.user_loading')
+        this.type = 'success'
+        this.showToast = true
       })
-        .then(() => {
-          this.set('message', this.intl.t('messages.user_loading'))
-          this.set('type', 'success')
-          this.set('showToast', true)
-        })
-        .catch(error => {
-          this.set('message', error.status === 404 ? this.intl.t('messages.not_found') : this.intl.t('messages.unavail'))
-          this.set('type', 'error')
-          this.set('showToast', true)
-        })
-    },
-
-    clearToast() {
-      this.set('showToast', false)
-    }
+      .catch(error => {
+        this.message = error.status === 404 ? this.intl.t('messages.not_found') : this.intl.t('messages.unavail')
+        this.type = 'error'
+        this.showToast = true
+      })
   }
-})
+
+  @action clearToast() {
+    this.showToast = false
+  }
+}

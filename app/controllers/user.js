@@ -1,23 +1,30 @@
 import Controller from '@ember/controller'
+import { action } from '@ember/object'
+import { tracked } from '@glimmer/tracking'
 
-export default Controller.extend({
+export default class UserController extends Controller {
 
-  sortingOptions: null,
-  languageOptions: null,
-  sort: 'desc',
-  lang: 'user',
+  sortingOptions
+  languageOptions
 
-  init() {
-    this._super(...arguments)
+  @tracked sort
+  @tracked lang
+
+  constructor() {
+    super(...arguments)
+
+    this.sort = 'desc'
+    this.lang = 'user'
+
     this.sortingOptions = ['desc', 'asc']
     this.languageOptions = ['user', 'english', 'romaji', 'native']
-  },
+  }
 
-  setSort(sort) {
-    this.set('sort', sort)
-  },
+  @action setSort(sort) {
+    this.sort = sort
+  }
 
-  setLang(lang) {
-    this.set('lang', lang)
-  },
-})
+  @action setLang(lang) {
+    this.lang = lang
+  }
+}

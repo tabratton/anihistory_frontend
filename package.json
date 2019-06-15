@@ -18,8 +18,10 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.7.0",
+    "@ember/render-modifiers": "^1.0.0",
+    "@glimmer/component": "0.14.0-alpha.3",
+    "babel-eslint": "^10.0.1",
     "broccoli-asset-rev": "^3.0.0",
     "ember-ajax": "^5.0.0",
     "ember-auto-import": "^1.4.1",
@@ -42,6 +44,7 @@
     "ember-cli-uglify": "^3.0.0",
     "ember-cli-update": "^0.34.10",
     "ember-data": "~3.10.0",
+    "ember-decorators": "^6.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-intl": "^3.5.2",
     "ember-load-initializers": "^2.0.0",

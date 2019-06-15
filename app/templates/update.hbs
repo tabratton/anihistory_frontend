@@ -1,6 +1,6 @@
-{{#if showToast}}
-  <div class="toast toast-{{type}}">
-    <button class="btn btn-clear float-right" {{action "clearToast"}}></button>
+{{#if this.showToast}}
+  <div class="toast toast-{{this.type}}">
+    <button class="btn btn-clear float-right" onclick={{this.clearToast}}></button>
     {{message}}
   </div>
 {{/if}}
@@ -10,7 +10,9 @@
     <h4 class="text-center">
       {{if found (t "update-page.title_update") (t "update-page.title_not_found")}}
     </h4>
-    <p class="text-center">{{t "update-page.update_hint"}}</p>
+    <p class="text-center">
+      {{t "update-page.update_hint"}}
+    </p>
     <div class="input-group">
       <div class="column col-4 col-mx-auto">
         {{input
@@ -18,14 +20,14 @@
           class="form-input"
           type="text"
           value=userName
-          enter=(action "updateUser")
+          enter=(action this.updateUser)
           placeholder=(t "update-page.username")
         }}
       </div>
     </div>
     <button
       class="btn btn-primary input-group-btn p-centered update-btn"
-      {{action "updateUser"}}
+      onclick={{this.updateUser}}
     >
       {{t "update-page.update"}}
     </button>

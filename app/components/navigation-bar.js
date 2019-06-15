@@ -1,15 +1,17 @@
-import Component from '@ember/component'
+import { action } from '@ember/object'
 import { inject as service } from '@ember/service'
+import Component from '@glimmer/component'
+import { tracked } from '@glimmer/tracking'
 
-export default Component.extend({
+export default class NavigationBar extends Component {
 
-  router: service(),
+  @service router
 
-  actions: {
-    goToUser() {
-      const user = this.userName
-      this.set('userName', null)
-      this.router.transitionTo('user', user)
-    }
+  @tracked userName
+
+  @action goToUser() {
+    const user = this.userName
+    this.userName = ''
+    this.router.transitionTo('user', user)
   }
-})
+}
