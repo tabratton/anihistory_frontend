@@ -10,11 +10,11 @@
     </div>
     <div class="input-group input-inline">
       {{input
-          type="text"
-          class="form-input"
-          value=userName
-          enter=(action "goToUser")
-          placeholder=(t "navigation-bar.username")
+        type="text"
+        class="form-input"
+        value=userName
+        enter=(action "goToUser")
+        placeholder=(t "navigation-bar.username")
       }}
       <button class="btn btn-primary input-group-btn" {{action "goToUser"}}>{{t "navigation-bar.search"}}</button>
     </div>
