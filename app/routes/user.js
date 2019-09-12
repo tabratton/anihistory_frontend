@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route'
 import { inject as service } from '@ember/service'
 import * as am4core from '@amcharts/amcharts4/core'
-import { addDays, isEqual, parse, subDays } from 'date-fns'
+import { addDays, isEqual, parseISO, subDays } from 'date-fns'
 
 import am4themes_kelly from '@amcharts/amcharts4/themes/kelly'
 
@@ -17,9 +17,9 @@ export default class UserRoute extends Route {
         am4themes_kelly(colorSet)
         data.forEach(e => {
           if (e.start_day) {
-            e.start_day = parse(e.start_day)
+            e.start_day = parseISO(e.start_day)
           } else if (e.end_day) {
-            e.start_day = subDays(parse(e.end_day), 1)
+            e.start_day = subDays(parseISO(e.end_day), 1)
           } else {
             e.start_day = new Date()
           }
@@ -29,7 +29,7 @@ export default class UserRoute extends Route {
           e.native = e.native ? e.native : e['user_title']
           e.user = e['user_title']
 
-          e.end_day = e.end_day ? parse(e.end_day) : new Date()
+          e.end_day = e.end_day ? parseISO(e.end_day) : new Date()
           if (isEqual(e.start_day, e.end_day)) {
             e.end_day = addDays(e.end_day, 1)
           }
