@@ -20,6 +20,10 @@ export default class UserController extends Controller {
     this.languageOptions = ['user', 'english', 'romaji', 'native']
   }
 
+  get modelPresent() {
+    return !!this.model
+  }
+
   @action setSort(sort) {
     this.sort = sort
   }

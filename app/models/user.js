@@ -1,6 +1,6 @@
-import DS from 'ember-data'
+import Model, { attr } from '@ember-data/model';
 
-export default DS.Model.extend({
-  avatar: DS.attr('string'),
-  list: DS.attr(),
+export default Model.extend({
+  avatar: attr('string'),
+  list: attr(),
 })

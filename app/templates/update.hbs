@@ -1,6 +1,6 @@
 {{#if this.showToast}}
   <div class="toast toast-{{this.type}}">
-    <button class="btn btn-clear float-right" onclick={{this.clearToast}}></button>
+    <button type="button" class="btn btn-clear float-right" onclick={{this.clearToast}}></button>
     {{message}}
   </div>
 {{/if}}
@@ -15,17 +15,11 @@
     </p>
     <div class="input-group">
       <div class="column col-4 col-mx-auto">
-        {{input
-          id="user-update"
-          class="form-input"
-          type="text"
-          value=userName
-          enter=(action this.updateUser)
-          placeholder=(t "update-page.username")
-        }}
+        <Input @id="user-update" class="form-input" @type="text" @value={{userName}} @enter={{action this.updateUser}} placeholder={{t "update-page.username"}} />
       </div>
     </div>
     <button
+      type="button"
       class="btn btn-primary input-group-btn p-centered update-btn"
       onclick={{this.updateUser}}
     >

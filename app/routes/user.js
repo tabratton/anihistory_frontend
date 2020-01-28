@@ -1,7 +1,13 @@
 import Route from '@ember/routing/route'
 import { inject as service } from '@ember/service'
 import * as am4core from '@amcharts/amcharts4/core'
-import { addDays, isEqual, parseISO, subDays } from 'date-fns'
+import {
+  addDays,
+  isEqual,
+  parseISO,
+  subDays
+} from 'date-fns'
+import fetch from 'fetch';
 
 import am4themes_kelly from '@amcharts/amcharts4/themes/kelly'
 
@@ -10,9 +16,10 @@ export default class UserRoute extends Route {
   @service router
 
   model(params) {
-    return this.store.find('user', params.user_name)
-      .then(resp => {
-        const data = resp.list
+    return fetch(`https://rust.swigglemeister.com/users/${params.user_name}`)
+      .then(response => response.json())
+      .then(({ users = {} }) => {
+        const data = users.list || []
         const colorSet = new am4core.ColorSet()
         am4themes_kelly(colorSet)
         data.forEach(e => {
@@ -38,7 +45,6 @@ export default class UserRoute extends Route {
 
         return data
       })
-      .catch(() => null)
   }
 
   afterModel(model) {

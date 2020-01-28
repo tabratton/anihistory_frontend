@@ -1,26 +1,20 @@
 <header class="navbar">
   <section class="navbar-section">
-    {{#link-to "index" class="navbar-brand"}}
+    <LinkTo @route="index" class="navbar-brand">
       {{t "project-name"}}
-    {{/link-to}}
+    </LinkTo>
   </section>
   <section class="navbar-section">
     <div class="tab tab-block">
       <div class="tab-item">
-        {{#link-to "update" "true"}}
+        <LinkTo @route="update" @model="true">
           {{t "navigation-bar.update"}}
-        {{/link-to}}
+        </LinkTo>
       </div>
     </div>
     <div class="input-group input-inline">
-      {{input
-        type="text"
-        class="form-input"
-        value=this.userName
-        enter=(action this.goToUser)
-        placeholder=(t "navigation-bar.username")
-      }}
-      <button class="btn btn-primary input-group-btn" onclick={{this.goToUser}}>
+      <Input @type="text" class="form-input" @value={{this.userName}} @enter={{action this.goToUser}} placeholder={{t "navigation-bar.username"}} />
+      <button type="button" class="btn btn-primary input-group-btn" onclick={{this.goToUser}}>
         {{t "navigation-bar.search"}}
       </button>
     </div>
