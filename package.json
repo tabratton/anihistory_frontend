@@ -21,7 +21,7 @@
     "@amcharts/amcharts4-ember": "4.9.10",
     "date-fns": "2.11.1",
     "ember-fetch": "^8.0.1",
-    "ember-paper": "1.0.0-beta.28",
+    "ember-paper": "1.0.0-beta.29",
     "spectre.css": "0.5.8"
   },
   "devDependencies": {
